@@ -1,0 +1,166 @@
+/* css by janith */
+body{
+    background-image: url("/images/gameBg.jpg");
+    background-position: 100% 0%;
+    background-repeat: no-repeat;
+    background-color: rgb(28,28,28);
+    background-size: 70%;
+    
+}
+.body{
+    background-color: rgba(37, 37, 36, 0.7);
+
+}
+
+
+#logo{
+    width: 230px;
+}
+.carousel-indicators li {
+    list-style-type: circle;
+  }
+.navbar-text{
+    color:#ff9400!important;
+    font-weight: 600;
+    font-size:17px;
+    font-family: 'PT Sans', sans-serif;
+}
+.navx{
+    padding: 10px;  
+}
+.navx:hover{
+    background-color: #ff9400;
+    color: #242323;
+}
+.build{
+    height:80px;
+    width: 255px;
+    background-color: #242323;
+    margin-top: 0px!important;
+    position: relative;
+    bottom: 24px;
+    
+}
+.build-img{
+    position: relative;
+    top:7px;
+    right:3px;
+
+    
+}
+.build-contain{
+    border-radius: 100%;
+    margin-right: 0px;
+    margin-top: 10px;
+
+}
+.search{
+    height:80px;
+    width: 45px;
+    background-color: rgb(231, 144, 31);
+    margin-top: 0px!important;
+    position: relative;
+    bottom: 24px;
+}
+.pleft{
+    padding-right: 0px;
+}
+button{
+    border-color: #242323;
+    border-style: solid 
+}
+.category{
+    width: 280px;
+    background-color: #4b4a48;
+    transition:transform 0.2s;
+    max-height: 100px;
+    border-radius: 3px;
+    color:#a5a4a3;
+}
+.category:hover{
+    transform: scale(1.08,1.08);
+    background-color: #ff9400;
+    color: #242323;
+}
+/* for long cat */
+/* .categoryx{
+    width: 280px;
+    height:65px;
+    background-color: #4b4a48;
+    margin-bottom:5px;
+}
+.categoryxx{
+    width: 280px;
+    height:85px;
+    background-color: #4b4a48;
+    margin-bottom:5px;
+} */
+.cat-image{
+    width: 45px;
+
+}
+.xx{
+    padding-left:0px
+}
+
+.cname{
+
+    font-size: 16px;
+    font-weight:700;
+    font-family: 'PT Sans', sans-serif;
+}
+.footer{
+    height: 60px;
+    background-color: #4b4a48;
+}
+.f1{
+   height:60px; 
+   padding-top:15px;
+   font-size: 14px;
+   color:#848383;
+   font-weight:300;
+   font-family: 'PT Sans', sans-serif;
+   padding-left:5px;
+}
+.link{
+    color: #848383;
+}
+.f2{
+    font-size: 16px;
+    color:#848383;
+    font-weight:500;
+    font-family: 'PT Sans', sans-serif;
+    color:#a5a4a3;
+
+}
+
+.vr{
+    width: 2px;
+    height: 30px;
+    background-color: #a5a4a3;
+}
+.aboutImage{
+    width:100%;
+    padding: 0;
+    height: 300px;
+    object-fit: cover;
+}
+.no-pad{
+    padding: 0%;
+}
+/* css by sharhan */
+
+.aboutText{
+    font-family: 'PT Sans', sans-serif;
+    color:#ffff;
+    font-weight: 550;
+}
+.about{
+    font-family: 'PT Sans', sans-serif;
+    color:#a5a4a3;
+
+}
+.xxx{
+    padding-right: 0%;
+}
+

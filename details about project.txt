@@ -1,0 +1,24 @@
+1)Ishara Kudagama-215534R{
+    Home page
+    items
+}
+2)Mohamed Sharhan- 215560R{
+    about page
+    css to his page
+}
+
+3)Sudeera - 215516N{
+    service page
+    sstyles.css
+}
+
+4)Manodaya -21550L{
+    contact page
+    mstyles.css
+}
+
+5)Janith -215543T{
+    header
+    footer
+    backend
+}

@@ -1,0 +1,115 @@
+/* css by manodaya */
+
+#name,
+#email,
+#num,
+#subject {
+    width: 450px;
+    height: 40px;
+    margin-left: 300px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: aliceblue;
+    background-color: rgb(46, 44, 44);
+    border-color: rgb(92, 89, 89);
+}
+
+#inquiry {
+    width: 950px;
+    height: 200px;
+    margin-left: 300px;
+    font-size: 25px;
+    background-color: rgb(46, 44, 44);
+    border-color: rgb(92, 89, 89);
+}
+
+#submit {
+    width: 125px;
+    height: 50px;
+    background-color: orange;
+    border-radius: 10px;
+    font-size: 23px;
+    margin-left: 210px;
+    font-weight: 550;
+    font-family: 'PT Sans', sans-serif;
+    color:#333333;
+}
+
+#submitbtn {
+    text-align: center;
+    padding-top: 25px;
+
+
+
+}
+
+.mapouter {
+    display: block;
+
+}
+
+.H1 {
+    color: white;
+    font-size: 40px;
+    text-shadow: 1px;
+}
+
+.H3 {
+    width: 50%;
+    font-size: 40px;
+    background-color: orange;
+    margin-left: 450px;
+    text-align: center;
+    margin-bottom: 0px;
+
+}
+
+.h2 {
+    color: rgb(231, 234, 236);
+    font-size: 35px;
+    margin-top: 10px;
+    font-weight: 400;
+    font-family: 'PT Sans', sans-serif;
+    text-align: center;
+
+}
+
+.h2::before {
+    content: "\f2b6";
+    width: 15px;
+    height: 15px;
+    font-family: 'FontAwesome';
+    margin-right: 10px;
+    opacity: 0.4;
+
+}
+.cform{
+    background-color: #222221;
+    border-radius: 0%;
+    border-color: #4b4a48;
+    border-width: 3px;
+}
+.sf{
+    background: #ffa500;
+    border-color: #ffa500;
+    border-style: solid; 
+}
+.cform:hover{
+    background-color: #222221;
+}
+.cform:focus{
+    background-color: #222221;
+    color: white;
+    font-weight: 600;
+    font-family: 'PT Sans', sans-serif;
+    border-color: aliceblue;
+}
+.description{
+    color: #b4aeae;
+    font-size: 16px;
+
+}
+.listx{
+    color: #8d8d8d;
+    font-size: 15px;
+}

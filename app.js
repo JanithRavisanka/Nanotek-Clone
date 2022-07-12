@@ -11,7 +11,7 @@ mongoose.connect("mongodb+srv://Admin-janith:pJwACPwWsYaNORYp@cluster0.cl5pp.mon
 
 
 app.get("/", function(req, res){
-    res.render("header")
+    res.render("home")
 });
 
 app.get("/about", function(req, res){

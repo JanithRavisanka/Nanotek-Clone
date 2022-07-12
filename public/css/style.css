@@ -164,3 +164,152 @@ button{
     padding-right: 0%;
 }
 
+/* ishara */
+.carousel-indicators li {
+    list-style-type: circle;
+  }
+  .carousel-indicators li {
+    list-style-type: circle;
+    border-radius: 50%;
+  }
+  .carousel-indicators > li {
+    border-radius: 50%;
+  }
+
+  .slider{
+    width: 300px;
+    float: left;
+    align-items: center;
+
+  }
+
+  .col-sm-5{
+    color: aliceblue;
+    float: right 100%;
+  }
+
+  .col-sm-7{
+
+  }
+
+  .carousel-inner{
+    border-bottom: 3px solid #4b4a48;
+    
+    
+  }
+  .container{
+    float: right;
+  }
+
+
+  ul.tab {
+    list-style-type: none;
+    margin-left: 20%;
+    padding: 0;
+    overflow: hidden;
+    
+    
+}
+
+/* Float the list items side by side */
+ul.tab li {margin-left: 2%;
+    display: inline-block;
+}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: #a9a9a9;
+    text-align: center;
+    padding: 7px 7px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 45px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+    color: #ff9400;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+   
+}
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #a9a9a9;
+    font-size: 40px;
+    float: right;
+    color: #ff9400;
+  }
+  
+  .hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+
+
+
+
+
+
+.container1{
+    background-color: #ff9400;
+    
+   
+
+
+}
+.details{
+    align-items: center;
+    padding-left: 50px;
+}
+
+
+.column {
+    float: left;
+    width: 350px;
+    background-color: #ff9400;
+    margin-left: 5px;
+    height: 300px;
+    padding-left: 30px;
+    padding-right: 50px;
+  }
+  
+  .part1{
+    float: right;
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+  /* Clear floats after the columns */
+  .part1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .container1 h4{
+    padding-left: 50px;
+  }
+
+  .important ul li{
+    display: inline-block;
+    float: right;
+    margin-right: 100px;
+  }

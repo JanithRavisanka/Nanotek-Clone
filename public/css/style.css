@@ -6,9 +6,11 @@ body{
     background-color: rgb(28,28,28);
     background-size: 70%;
     
+    
 }
 .body{
     background-color: rgba(37, 37, 36, 0.7);
+    min-height: 1000px;
 
 }
 
@@ -70,7 +72,7 @@ button{
     border-style: solid 
 }
 .category{
-    width: 280px;
+    /* width: 280px; */
     background-color: #4b4a48;
     transition:transform 0.2s;
     max-height: 100px;
@@ -100,8 +102,10 @@ button{
 
 }
 .xx{
-    padding-left:0px
+    padding-left:0px;
+    padding-right: 0%;
 }
+
 
 .cname{
 
@@ -183,7 +187,7 @@ button{
 
   }
 
-  .col-sm-5{
+  .col-sm-7{
     color: aliceblue;
     float: right 100%;
   }
@@ -194,15 +198,11 @@ button{
 
   .carousel-inner{
     border-bottom: 3px solid #4b4a48;
-    
-    
   }
-  .container{
-    float: right;
-  }
+    
 
 
-  ul.tab {
+  .ul.tab {
     list-style-type: none;
     margin-left: 20%;
     padding: 0;
@@ -319,3 +319,5 @@ ul.tab li a:focus, .active {
 .gg{
     padding-top: 70px;
 }
+
+/* offcanvas */

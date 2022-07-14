@@ -30,6 +30,7 @@ app.get("/:cname",function(req, res){
     res.render("items", ({title:req.params.cname}))
 });
 
+
 app.listen(3000, function(){
     console.log("sever successfully running on port 3000")
 });

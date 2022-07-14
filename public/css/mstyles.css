@@ -54,14 +54,14 @@
     text-shadow: 1px;
 }
 
-.H3 {
+H3 {
     width: 50%;
-    font-size: 40px;
+    font-size: 35px;
     background-color: orange;
-    margin-left: 450px;
+    clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%);
     text-align: center;
     margin-bottom: 0px;
-
+    
 }
 
 .h2 {

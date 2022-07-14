@@ -79,7 +79,7 @@ button {
 }
 
 .category {
-    max-width: 300px;
+    /* max-width: 300px; */
     background-color: #4b4a48;
     transition: transform 0.2s;
     max-height: 100px;
@@ -239,6 +239,16 @@ button {
 }
 .col-md-6-custom{
     max-width: 98%;
+}
+@media screen and (max-width: 992px) {
+    .offcanvasx {
+        width: 40%!important;
+        background-color: #1c1c1c;
+    }
+}
+.offcanvas-lg{
+    --bs-offcanvas-padding-x: 0rem;
+    --bs-offcanvas-padding-y: 0.5rem;
 }
 
 /* ishara */

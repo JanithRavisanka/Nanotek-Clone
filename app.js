@@ -11,26 +11,26 @@ mongoose.connect("mongodb+srv://Admin-janith:pJwACPwWsYaNORYp@cluster0.cl5pp.mon
 
 
 app.get("/", function(req, res){
-    res.render("home")
+    res.render("home", {current:"Home"});
 });
 
 app.get("/about", function(req, res){
-    res.render("about")
+    res.render("about", {current:"About"});
 });
 
 app.get("/contact", function(req, res){
-    res.render("contact")
+    res.render("contact", {current:"Contact"});
 });
 
 app.get("/services", function(req, res){
- res.render("service")
+ res.render("service", {current:"Services"});
 });
 
 app.get("/:cname",function(req, res){
-    res.render("items", ({title:req.params.cname}))
+    res.render("items", {title:req.params.cname, current:req.params.cname});
 });
 
 
 app.listen(3000, function(){
-    console.log("sever successfully running on port 3000")
+    console.log("sever successfully running on port 3000");
 });

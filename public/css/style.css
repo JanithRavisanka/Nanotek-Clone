@@ -167,6 +167,12 @@ button{
 .xxx{
     padding-right: 0%;
 }
+.togbutton{
+    background-color: inherit;
+    border: inherit;
+    font-family: inherit;
+}
+
 
 /* ishara */
 .carousel-indicators li {

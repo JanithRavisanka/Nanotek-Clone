@@ -102,6 +102,7 @@ button {
 .xx {
     padding-left: 0px;
     padding-right: 0%;
+    max-width: 280px;
 }
 
 
@@ -140,7 +141,7 @@ button {
 
 }
 
-.vr {
+.vrx {
     width: 2px;
     height: 30px;
     background-color: #a5a4a3;
@@ -249,6 +250,13 @@ button {
 .offcanvas-lg{
     --bs-offcanvas-padding-x: 0rem;
     --bs-offcanvas-padding-y: 0.5rem;
+}
+.cTitle{
+    font-size: 3rem;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    color:aliceblue ;
 }
 
 /* ishara */

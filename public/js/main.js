@@ -32,8 +32,40 @@ var rangeOne = document.querySelector('input[name="rangeOne"]'),
     // add hover animation to items
     $('.itemAbove').hover(function(){
       $(".itemUnder").addClass("itemUnderBg");
+      $(".cardText").css("background-color", "black");
+      $(".addimg").addClass("dd");
+      $(".cardBg").css("border-color", "black");
+      $(".plusdiv").css("background-color", "black");
     },function(){
       $(".itemUnder").removeClass("itemUnderBg");
+      $(".cardText").css("background-color", "#4b4a48");
+      $(".addimg").removeClass("dd");
+      $(".cardBg").css("border-color", "#4b4a48");
+      $(".plusdiv").css("background-color", "transparent");
     });
+
+    $('#addto').hover(function(){
+      $('#addto').css("background-color", "black");
+      $(".cardText").css("background-color", "black");
+      $(".addtext").addClass("dd");
+      $(".itemUnder").addClass("itemUnderBg");
+      // $(".addtext").text("+ Add to")
+      $(".plusdiv").css("display", "none");
+      $(".cardBg").css("border-color", "black");
+
+    },function(){
+      $('#addto').css("background-color", "transparent");
+      $(".cardText").css("background-color", "#4b4a48");
+      $(".addtext").removeClass("dd");
+      $(".itemUnder").removeClass("itemUnderBg");
+      $(".addimg").removeClass("dd");
+      $(".plusdiv").css("display", "block");
+      $(".cardBg").css("border-color", "#4b4a48");
+    });
+
+
+    $(".bodybg").width = $(".body").width();
+    $(".bodyx").width = $(".body").width();    
+
   });
   

@@ -206,16 +206,22 @@ input[type="checkbox"]:checked{
 }
 .cardImage{
     width: 200px;
-    padding-top: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .cardBg{
     background-color: transparent;
+    border: #4b4a48 solid 5px;
+    border-radius: 0%;
 }
 .cardText{
     color:aliceblue;
+    height: 80px;
     font-family: 'PT Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background-color: #4b4a48;
+    transition: all 1s ease;
 }
 .itemBody{
     width: 99.5%;
@@ -240,15 +246,64 @@ input[type="checkbox"]:checked{
 }
 .itemUnder{
   position: absolute;
-  top: 25%;
+  top: 50%;
   left: 50%;
   width: 10%;
   height: 10%;
+  border-radius: 50%;
   z-index: -1;
   overflow: hidden;
-  transition: all 0.8s ease;
+  transition: all 0.3s ease;
+  
 }
 .itemUnderBg{
   background-color: #ff9400;
-  transform: scale(20, 20);
+  border-radius: 0%;
+  transform:translate(-50%, -50%) scale(10, 10);
+}
+
+.ccc{
+  color: #ff9400;
+  font-size: 1.2rem;
+}
+.addimg{
+  margin-right: 10px;
+  height: 12px;
+  position: relative;
+  right:2px;
+  display: none;  
+  
+}
+#addto{
+  height: 30px;
+  position: relative;
+  background-color: transparent;
+  z-index: 3;
+  transition: height 1s ease;
+}
+.addtext{
+  position: relative;
+  bottom: 3px;
+  display: none;
+  color: #ff9400;
+  font-size: 15px;
+  font-weight: 600;
+  padding-right: 5px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.dd{
+  transition: all 0.5s ease;
+  display: inline;
+}
+.dd::before{
+  content: "";
+  width: 20px;
+  border-radius: 50%;
+  background-color: black;
+}
+.plusdiv{
+  background-color: transparent;
+  position: relative;
+  bottom: 3px;
 }

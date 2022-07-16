@@ -35,12 +35,12 @@ var rangeOne1 = document.querySelector('input[name="rangeOne1"]'),
       updateView.call(this);
       updateView1.call(this);
     });
-    console.log("hi1");
+
     for(let i=1; i <= 20 ; i++){
 
       
       // console.log(`hi${i}`);
-      // console.log($(`#item${i}`));
+      console.log($(`#item${i}`));
 
 
       // js for hover card
@@ -80,8 +80,29 @@ var rangeOne1 = document.querySelector('input[name="rangeOne1"]'),
         $(`#item${i}`).children(".cardBg").children(".cbtn").children("#addto").children(".plusdiv").css("display", "block");
         $(`#item${i}`).children(".cardBg").css("border-color", "#4b4a48");
       });
+      $(".build").on("mouseover", function(){
+        $(this).children(".container").addClass("gbgb")
+      });
 
+      $(".build").on("mouseout", function(){
+        $(this).children(".container").removeClass("gbgb")
+      });
+      $(".navbar-toggler").on("click", function(){
+        $(".navbar-toggler-icon").css("transition", "all 0.5s ease");
+        console.log($(".navbar-toggler-icon").css("transform"))
+        if ($(".navbar-toggler-icon").css("transform") === "matrix(1, 0, 0, 1, 0, 0)"){
+          $(".navbar-toggler-icon").css("transform", "rotate(-90deg");
 
+        }else if($(".navbar-toggler-icon").css("transform") === "matrix(6.12323e-17, -1, 1, 6.12323e-17, 0, 0)"){
+          $(".navbar-toggler-icon").css("transform", "rotate(0deg");
+
+        }else{
+          $(".navbar-toggler-icon").css("transform", "rotate(-90deg");
+
+        }
+      });
+    
+      
     }
 
 

@@ -344,9 +344,11 @@ button {
 }
 @media screen and (max-width: 1200px) {
     #afterTiny{
-        display: inline;
+        display: flex;
         position: absolute;
         z-index: 1;
+        flex-direction: column;
+    
     }
 }
 @media screen and (max-width: 1200px) {

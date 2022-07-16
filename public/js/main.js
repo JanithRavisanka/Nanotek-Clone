@@ -6,65 +6,35 @@ var rangeOne = document.querySelector('input[name="rangeOne"]'),
     updateView = function () {
       if (this.getAttribute('name') === 'rangeOne') {
         outputOne.innerHTML = this.value;
-        outputOne.style.left = this.value / this.getAttribute('max') * 100 + '%';
       } else {
-        outputTwo.style.left = this.value / this.getAttribute('max') * 100 + '%';
         outputTwo.innerHTML = this.value
       }
-      if (parseInt(rangeOne.value) > parseInt(rangeTwo.value)) {
-        inclRange.style.width = (rangeOne.value - rangeTwo.value) / this.getAttribute('max') * 100 + '%';
-        inclRange.style.left = rangeTwo.value / this.getAttribute('max') * 100 + '%';
+    };
+var rangeOne1 = document.querySelector('input[name="rangeOne1"]'),
+    rangeTwo2 = document.querySelector('input[name="rangeTwo2"]'),
+    outputOne1 = document.querySelector('.out11'),
+    outputTwo2 = document.querySelector('.out22'),
+    inclRange1 = document.querySelector('.incl-range1'),
+    updateView1 = function () {
+      if (this.getAttribute('name') === 'rangeOne1') {
+        outputOne1.innerHTML = this.value;
       } else {
-        inclRange.style.width = (rangeTwo.value - rangeOne.value) / this.getAttribute('max') * 100 + '%';
-        inclRange.style.left = rangeOne.value / this.getAttribute('max') * 100 + '%';
+        outputTwo2.innerHTML = this.value
       }
     };
+
 
   document.addEventListener('DOMContentLoaded', function () {
     updateView.call(rangeOne);
     updateView.call(rangeTwo);
+    updateView1.call(rangeOne1);
+    updateView1.call(rangeTwo2);
     $('input[type="range"]').on('mouseup', function() {
       this.blur();
     }).on('mousedown input', function () {
       updateView.call(this);
+      updateView1.call(this);
     });
-
-    // add hover animation to items
-    // $('.itemAbove').hover(function(){
-    //   $(".itemUnder").addClass("itemUnderBg"); !
-    //   $(".cardText").css("background-color", "black"); !
-    //   $(".addimg").addClass("dd"); !
-    //   $(".cardBg").css("border-color", "black"); !
-    //   $(".plusdiv").css("background-color", "black"); !
-    // },function(){
-    //   $(".itemUnder").removeClass("itemUnderBg"); !
-    //   $(".cardText").css("background-color", "#4b4a48"); !
-    //   $(".addimg").removeClass("dd"); !
-    //   $(".cardBg").css("border-color", "#4b4a48"); !
-    //   $(".plusdiv").css("background-color", "transparent"); !
-    // });
-
-    // $('#addto').hover(function(){
-    //   $('#addto').css("background-color", "black"); !
-    //   $(".cardText").css("background-color", "black"); !
-    //   $(".addtext").addClass("dd"); !
-    //   $(".itemUnder").addClass("itemUnderBg"); !
-    //   // $(".addtext").text("+ Add to") !
-    //   $(".plusdiv").css("display", "none"); !
-    //   $(".cardBg").css("border-color", "black");
-
-    // },function(){
-    //   $('#addto').css("background-color", "transparent");!
-    //   $(".cardText").css("background-color", "#4b4a48"); !
-    //   $(".addtext").removeClass("dd"); !
-    //   $(".itemUnder").removeClass("itemUnderBg"); !
-    //   $(".addimg").removeClass("dd"); !
-    //   $(".plusdiv").css("display", "block"); !
-    //   $(".cardBg").css("border-color", "#4b4a48");
-    // });
-
-
-
     console.log("hi1");
     for(let i=1; i <= 20 ; i++){
 
@@ -115,8 +85,8 @@ var rangeOne = document.querySelector('input[name="rangeOne"]'),
     }
 
 
-    $(".bodybg").width = $(".body").width();
-    $(".bodyx").width = $(".body").width();    
+    $(".bodybg").width($(".body").width());
+    $(".bodyx").width($(".body").width());    
 
   });
   

@@ -103,6 +103,7 @@ var rangeOne1 = document.querySelector('input[name="rangeOne1"]'),
 
         }
       });
+
     
       
     }

@@ -490,3 +490,9 @@ ul.tab li a:focus,
     right: 10px;
 
 }
+.act{
+    color: #ff9400;
+}
+.noact{
+    color:#4b4a48;
+}

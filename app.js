@@ -25,10 +25,28 @@ app.get("/contact", function(req, res){
 app.get("/services", function(req, res){
  res.render("service", {current:"Services"});
 });
+app.get("/PBA", function(req, res){
+    res.render("asus", {title:"POWERED BY ASUS", current:"POWERED BY ASUS"});
+});
+app.get("/console",function(req, res){
+    res.render("console", {title:"CONSOLE GAMING", current:"CONSOLE GAMING"});
+});
+app.get("/asusrog",function(req, res){
+    res.render("asusrog", {title:"ASUS ROG", current:"ASUS ROG"});
+});
+
+app.get("/apple",function(req, res){
+    res.render("apple", {title:"APPLE PRODUCTS", current:"APPLE PRODUCTS"});
+});
+app.get("/workstations",function(req, res){
+    res.render("workstations", {title:"DESTOP WORKSTATION", current:"DESTOP WORKSTATION"});
+});
 
 app.get("/:cname",function(req, res){
     res.render("items", {title:req.params.cname, current:req.params.cname});
 });
+
+
 
 
 app.listen(3000, function(){

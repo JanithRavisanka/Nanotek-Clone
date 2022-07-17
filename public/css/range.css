@@ -312,3 +312,10 @@ input[type="checkbox"]:checked{
   transform: scale(1.1,1.1);
 }
 .nope{}
+
+.cccc{
+  color: #e3e3e3;
+  padding-top: 30px;
+  font-size: 28px;
+  font-weight: 600;
+}

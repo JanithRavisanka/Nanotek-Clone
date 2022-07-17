@@ -41,6 +41,10 @@ app.get("/apple",function(req, res){
 app.get("/workstations",function(req, res){
     res.render("workstations", {title:"DESTOP WORKSTATION", current:"DESTOP WORKSTATION"});
 });
+app.get("/bpc",function(req, res){
+    res.render("bpc", {title:"BUDGET DESKTOP COMPUTERS", current:"BUDGET DESKTOP COMPUTERS"});
+});
+
 
 app.get("/:cname",function(req, res){
     res.render("items", {title:req.params.cname, current:req.params.cname});

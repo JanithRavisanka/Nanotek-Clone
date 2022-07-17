@@ -71,6 +71,7 @@ var rangeOne1 = document.querySelector('input[name="rangeOne1"]'),
         $(`#item${i}`).children(".cardBg").children(".cbtn").children("#addto").children(".plusdiv").children(".addimg").addClass("dd");
         $(`#item${i}`).children(".cardBg").children(".cbtn").children("#addto").children(".plusdiv").css("display", "none");
         $(`#item${i}`).children(".cardBg").css("border-color", "black");
+        $(`#item${i}`).children(".cardBg").children(".ccc").css("color", "black");
       });
 
       $(`#item${i}`).children(".cardBg").children(".cbtn").children("#addto").on("mouseout", function(){
@@ -81,6 +82,7 @@ var rangeOne1 = document.querySelector('input[name="rangeOne1"]'),
         $(`#item${i}`).children(".cardBg").children(".cbtn").children("#addto").children(".plusdiv").children(".addimg").removeClass("dd");
         $(`#item${i}`).children(".cardBg").children(".cbtn").children("#addto").children(".plusdiv").css("display", "block");
         $(`#item${i}`).children(".cardBg").css("border-color", "#4b4a48");
+        $(`#item${i}`).children(".cardBg").children(".ccc").css("color", "#ff9400"); 
       });
       $(".build").on("mouseover", function(){
         $(this).children(".container").addClass("gbgb")

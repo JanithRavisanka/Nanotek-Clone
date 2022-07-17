@@ -49,7 +49,8 @@ var rangeOne1 = document.querySelector('input[name="rangeOne1"]'),
         $(`#item${i}`).children(".cardBg").children(".card-body").children(".cardText").css("background-color", "black");
         $(`#item${i}`).children(".cardBg").children(".cbtn").children("#addto").children(".plusdiv").children(".addimg").addClass("dd");
         $(`#item${i}`).children(".cardBg").children(".cbtn").children("#addto").children(".plusdiv").css("background-color", "black");
-        $(`#item${i}`).children(".cardBg").css("border-color", "black");     
+        $(`#item${i}`).children(".cardBg").css("border-color", "black");   
+        $(`#item${i}`).children(".cardBg").children(".ccc").css("color", "black")
       });
 
       $(`#item${i}`).children(".cardBg").children(".itemAbove").on("mouseout",function(){
@@ -57,7 +58,8 @@ var rangeOne1 = document.querySelector('input[name="rangeOne1"]'),
         $(`#item${i}`).children(".cardBg").children(".card-body").children(".cardText").css("background-color", "#4b4a48");
         $(`#item${i}`).children(".cardBg").children(".cbtn").children("#addto").children(".plusdiv").children(".addimg").removeClass("dd");
         $(`#item${i}`).children(".cardBg").children(".cbtn").children("#addto").children(".plusdiv").css("background-color", "transparent");
-        $(`#item${i}`).children(".cardBg").css("border-color", "#4b4a48");      
+        $(`#item${i}`).children(".cardBg").css("border-color", "#4b4a48");
+        $(`#item${i}`).children(".cardBg").children(".ccc").css("color", "#ff9400")      
       });
 
       // js for hove plus div

@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 
 
-mongoose.connect("mongodb+srv://Admin-janith:pJwACPwWsYaNORYp@cluster0.cl5pp.mongodb.net/itemDB");
+// mongoose.connect("mongodb+srv://Admin-janith:pJwACPwWsYaNORYp@cluster0.cl5pp.mongodb.net/itemDB");
 
 
 app.get("/", function(req, res){

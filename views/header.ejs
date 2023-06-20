@@ -16,7 +16,42 @@
   <link rel="stylesheet" type="text/css" href="css/range.css">
 
   <!--  Google Charts-->
+
   <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    google.charts.load('current', {packages: ['corechart', 'Line']});
+    google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    //get
+      //get server sender data and dave it as data ejs
+      const data = <%- JSON.stringify(data) %>;
+
+      console.log(data);
+      const pData = new google.visualization.arrayToDataTable(data);
+      // pData.addColumn('datetime', 'Time');
+      // pData.addColumn('number', 'Pulse');
+      //for loop for add each row firebase timestamp to google chart
+      //   for (let i = 0; i < data.length; i++) {
+      //       pData.addRow([new Date(data[i].time), data[i].pulse]);
+      //   }
+
+
+
+
+      var options = {
+        chart: {
+          title: 'Heart Rate During the day',
+          subtitle: 'Pulse per min'
+        },
+        width: 1000,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+      chart.draw(pData, google.charts.Line.convertOptions(options));
+    }
+  </script>
 
   
 </head>
@@ -147,13 +182,13 @@
 
             <div class="offcanvas offcanvas-start offcanvasx" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
               <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasResponsiveLabel" style="color:#8d8d8d;">Categories</h5>
+                <h5 class="offcanvas-title" id="offcanvasResponsiveLabel" style="color:#8d8d8d;">Patient List</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body" style=" flex-direction: column;">
                 <p class="mb-0">
                   <div class="card mb-1 category" >
-                    <a href="/asusrog" style="font-size: inherit;color:inherit;text-decoration:none">
+                    <a href="/Janith" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
                         <div class="col-4 ps-3 pt-2">
                           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -164,7 +199,7 @@
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname">Patient-1</h5>
+                            <h5 class="card-title cname">Janith</h5>
                           </div>
                         </div>
                       </div>

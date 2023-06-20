@@ -1,15 +1,15 @@
-var rangeOne = document.querySelector('input[name="rangeOne"]'),
-    rangeTwo = document.querySelector('input[name="rangeTwo"]'),
-    outputOne = document.querySelector('.out1'),
-    outputTwo = document.querySelector('.out2'),
-    inclRange = document.querySelector('.incl-range'),
-    updateView = function () {
-      if (this.getAttribute('name') === 'rangeOne') {
-        outputOne.innerHTML = this.value;
-      } else {
-        outputTwo.innerHTML = this.value
-      }
-    };
+// var rangeOne = document.querySelector('input[name="rangeOne"]'),
+//     rangeTwo = document.querySelector('input[name="rangeTwo"]'),
+//     outputOne = document.querySelector('.out1'),
+//     outputTwo = document.querySelector('.out2'),
+//     inclRange = document.querySelector('.incl-range'),
+//     updateView = function () {
+//       if (this.getAttribute('name') === 'rangeOne') {
+//         outputOne.innerHTML = this.value;
+//       } else {
+//         outputTwo.innerHTML = this.value
+//       }
+//     };
 var rangeOne1 = document.querySelector('input[name="rangeOne1"]'),
     rangeTwo2 = document.querySelector('input[name="rangeTwo2"]'),
     outputOne1 = document.querySelector('.out11'),

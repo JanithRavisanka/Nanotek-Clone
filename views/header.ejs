@@ -10,48 +10,15 @@
   <link rel="icon" type="image/x-icon" href="/images/favicon/OIP.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="css/style.css">
-  <link type="text/css" rel="stylesheet" href="css/mstyles.css">
-  <link type="text/css" rel="stylesheet" href="css/sstyles.css">
-  <link rel="stylesheet" type="text/css" href="css/range.css">
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
+  <link type="text/css" rel="stylesheet" href="/css/mstyles.css">
+  <link type="text/css" rel="stylesheet" href="/css/sstyles.css">
+  <link rel="stylesheet" type="text/css" href="/css/range.css">
 
   <!--  Google Charts-->
 
   <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <script>
-    google.charts.load('current', {packages: ['corechart', 'Line']});
-    google.charts.setOnLoadCallback(drawChart);
-  function drawChart() {
-    //get
-      //get server sender data and dave it as data ejs
-      const data = <%- JSON.stringify(data) %>;
 
-      console.log(data);
-      const pData = new google.visualization.arrayToDataTable(data);
-      // pData.addColumn('datetime', 'Time');
-      // pData.addColumn('number', 'Pulse');
-      //for loop for add each row firebase timestamp to google chart
-      //   for (let i = 0; i < data.length; i++) {
-      //       pData.addRow([new Date(data[i].time), data[i].pulse]);
-      //   }
-
-
-
-
-      var options = {
-        chart: {
-          title: 'Heart Rate During the day',
-          subtitle: 'Pulse per min'
-        },
-        width: 1000,
-        height: 500
-      };
-
-      var chart = new google.charts.Line(document.getElementById('linechart_material'));
-
-      chart.draw(pData, google.charts.Line.convertOptions(options));
-    }
-  </script>
 
   
 </head>
@@ -92,7 +59,7 @@
               </a>
             </li>
             <li class="nav-item pe-3">
-              <a class="nav-link navbar-text ps-lg-5 pe-4 " href="/about">
+              <a class="nav-link navbar-text ps-lg-5 pe-4 " href="/<%= current %>/alert">
                 <span class="navx">Alerts</span>
               </a>
             </li>
@@ -188,7 +155,7 @@
               <div class="offcanvas-body" style=" flex-direction: column;">
                 <p class="mb-0">
                   <div class="card mb-1 category" >
-                    <a href="/Janith" style="font-size: inherit;color:inherit;text-decoration:none">
+                    <a href="/patient/Janith" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
                         <div class="col-4 ps-3 pt-2">
                           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">

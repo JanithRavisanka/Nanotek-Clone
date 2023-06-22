@@ -30,7 +30,7 @@ app.get("/", function(req, res){
 });
 
 
-app.get("/:pname",function(req, res){
+app.get("/patient/:pname",function(req, res){
     const collectionName = req.params.pname;
     db.collection(collectionName)
         .orderBy('timestamp', 'desc')
@@ -50,14 +50,20 @@ app.get("/:pname",function(req, res){
         console.log('Retrieved documents:');
         console.log(documents);
         //create arry for google charts data
-        var data = [];
-        data.push(['Time', 'Heart Rate']);
+        let bpmData = [];
+        let bodyTempData = [];
+        let roomTempData = [];
+        bpmData.push(['Time', 'Heart Rate']);
+        bodyTempData.push(['Time', 'Body Temperature']);
+        roomTempData.push(['Time', 'Room Temperature']);
         documents.forEach((doc) => {
-            data.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['bpm']]);
+            bpmData.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['bpm']]);
+            bodyTempData.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['body temp']]);
+            roomTempData.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['room temp']]);
         }
         );
-        console.log(data);
-        res.render("items", {data:data, current:collectionName});
+        console.log(bpmData);
+        res.render("items", {data:[bpmData, bodyTempData, roomTempData] ,current:collectionName});
       })
       .catch((error) => {
         console.error('Error getting documents:', error);
@@ -68,7 +74,11 @@ app.get("/:pname",function(req, res){
 
 });
 
-
+//get request to alerts each patient
+app.get("/:pname/alert",function(req, res){
+    console.log(req.params.pname);
+    res.render("alert", {current:"Alerts"});
+});
 
 
 app.listen(3000, function(){

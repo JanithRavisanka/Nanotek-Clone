@@ -1,11 +1,85 @@
 <%- include("header")  -%>
+<!-- google charts -->
+<script>
+    google.charts.load('current', {packages: ['corechart', 'Line']});
+    google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    //get
+      //get server sender data and dave it as data ejs
+      const data = <%- JSON.stringify(data) %>;
+
+      console.log(data);
+      const bpmData = new google.visualization.arrayToDataTable(data[0]);
+      // pData.addColumn('datetime', 'Time');
+      // pData.addColumn('number', 'Pulse');
+      //for loop for add each row firebase timestamp to google chart
+      //   for (let i = 0; i < data.length; i++) {
+      //       pData.addRow([new Date(data[i].time), data[i].pulse]);
+      //   }
+      const bodyTempData = new google.visualization.arrayToDataTable(data[1]);
+      const roomTempData = new google.visualization.arrayToDataTable(data[2]);
+
+
+
+      let optionsBPM = {
+        chart: {
+          title: 'Heart Rate During the day',
+          subtitle: 'Pulse per min',
+        },
+        curveType: 'function',
+        width: 1000,
+        height: 500,
+        vAxis: {
+          viewWindow: {
+            min: 0,
+          }
+        }
+      };
+      let optionsBTEMP = {
+        chart: {
+          title: 'Body Temperature During the day',
+          subtitle: 'Body Temperature in Celsius'
+        },
+        width: 1000,
+        height: 500,
+        vAxis: {
+          viewWindow: {
+            min: 25,
+          }
+        }
+      };
+      let optionsRTEMP = {
+        chart: {
+          title: 'Room Temperature During the day',
+          subtitle: 'Room Temperature in Celsius'
+        },
+        width: 1000,
+        height: 500,
+        vAxis: {
+          viewWindow: {
+            min: 25,
+          }
+        }
+      };
+
+      let bpmChart = new google.charts.Line(document.getElementById('linechart_material1'));
+      let bodyTempChart = new google.charts.Line(document.getElementById('linechart_material2'));
+      let roomTempChart = new google.charts.Line(document.getElementById('linechart_material3'));
+
+      bpmChart.draw(bpmData, google.charts.Line.convertOptions(optionsBPM));
+      bodyTempChart.draw(bodyTempData, google.charts.Line.convertOptions(optionsBTEMP));
+      roomTempChart.draw(roomTempData, google.charts.Line.convertOptions(optionsRTEMP));
+    }
+  </script>
 
 <span class="cTitle ps-3">
   <%= current %>
 </span>
 <!-- <button type="button" class="btn btn-outline-secondary"></button> -->
 
-<div id="linechart_material"></div>
+<div id="linechart_material1"></div>
+<div id="linechart_material2"></div>
+<div id="linechart_material3"></div>
 
 
 <%- include("footer") -%>

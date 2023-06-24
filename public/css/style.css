@@ -1,10 +1,4 @@
 /* css by janith */
-body {
-    
-
-
-
-}
 .bodybg{
     background-position: 100% 0%;
     background-repeat: no-repeat;
@@ -57,48 +51,18 @@ body {
     background-color: #ff9400;
     color: #242323;
 }
-
-.build {
-    height: 80px;
-    width: 255px;
-    background-color: #242323;
-    margin-top: 0px !important;
-    position: relative;
-    bottom: 24px;
-
+.navTitle:hover{
+    background-color: #242323 ;
+    color: #ff9400;
 }
 
-.build-img {
-    position: relative;
-    top: 7px;
-    right: 3px;
 
-}
-
-.build-contain {
-    border-radius: 100%;
-    margin-right: 0px;
-    margin-top: 10px;
-
-}
-
-.search {
-    height: 80px;
-    width: 45px;
-    background-color: rgb(231, 144, 31);
-    margin-top: 0px !important;
-    position: relative;
-    bottom: 24px;
-}
 
 .pleft {
     padding-right: 0px;
 }
 
-button {
-    border-color: #242323;
-    border-style: solid
-}
+
 
 .category {
     /* max-width: 300px; */
@@ -169,7 +133,6 @@ button {
 
 .f2 {
     font-size: 16px;
-    color: #848383;
     font-weight: 500;
     font-family: 'PT Sans', sans-serif;
     color: #a5a4a3;
@@ -321,7 +284,7 @@ button {
 
 .col-sm-7 {
     color: aliceblue;
-    float: right 100%;
+    float: right;
 }
 
 .col-sm-7 {}
@@ -464,9 +427,6 @@ ul.tab li a:focus,
     margin-right: 100px;
 }
 
-/* .ci{
-    width: 70%;
-  } */
 .gg {
     padding-top: 70px;
 }
@@ -489,14 +449,17 @@ ul.tab li a:focus,
     right: 10px;
 
 }
-.act{
-    color: #ff9400;
-}
-.noact{
-    color:#4b4a48;
-}
 .brand-name{
     text-decoration: none;
     color: #ff9400;
     font-weight: lighter;
+}
+
+
+/*css for charts*/
+#linechart_material1, #linechart_material2, #linechart_material3{
+    border:5px solid #ff9400;
+    width: 1000px;
+    height:500px;
+    margin-top: 30px;
 }

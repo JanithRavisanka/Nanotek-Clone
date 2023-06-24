@@ -1,9 +1,6 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const ejs =  require("ejs");
-const { collection, getDocs } = require("firebase/firestore");
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
+const {cert} = require('firebase-admin/app');
 const admin = require('firebase-admin');
 
 
@@ -49,7 +46,7 @@ app.get("/patient/:pname",function(req, res){
 
         console.log('Retrieved documents:');
         console.log(documents);
-        //create arry for google charts data
+        //create array for Google charts data
         let bpmData = [];
         let bodyTempData = [];
         let roomTempData = [];
@@ -69,15 +66,32 @@ app.get("/patient/:pname",function(req, res){
         console.error('Error getting documents:', error);
       });
 
-
-
-
 });
+
+
+
+
 
 //get request to alerts each patient
 app.get("/:pname/alert",function(req, res){
     console.log(req.params.pname);
-    res.render("alert", {current:"Alerts"});
+
+    //code for get patient data from collection name Alerts from firestore fiels= [h-bpm, h-temp, l-temp, l-bpm] documents are names by each patient name
+    db.collection("Alerts").doc(req.params.pname).get().then((doc) => {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+            res.render("alert", {data:doc.data(), current:req.params.pname});
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            res.render("alert", {data: {}, current: req.params.pname});
+        }
+    }
+    ).catch((error) => {
+        console.log("Error getting document:", error);
+        res.render("alert", {data:{}, current:req.params.pname});
+    });
+    res.render("alert", {current:req.params.pname});
 });
 
 

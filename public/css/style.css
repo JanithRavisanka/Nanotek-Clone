@@ -459,7 +459,51 @@ ul.tab li a:focus,
 /*css for charts*/
 #linechart_material1, #linechart_material2, #linechart_material3{
     border:5px solid #ff9400;
-    width: 1000px;
+    width: 1100px;
     height:500px;
     margin-top: 30px;
+    padding-left: 0;
 }
+#donutchart_bpm, #donutchart_btemp, #donutchart_rtemp{
+    border:5px solid #ff9400;
+    width: 300px;
+    height:250px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding-left: 0;
+}
+.donutCharts{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+/*styles for alerts*/
+#alerts{
+    padding-top: 100px;
+
+    /*background-color: #ff9400;*/
+    color: #4b4a48;
+    font-weight: 600;
+    font-family: 'PT Sans', sans-serif;
+}
+.alert-item{
+    /*border-radius: 10px;*/
+    /*border: 50px;*/
+    background-color: #ff9400;
+    color: #4b4a48;
+    font-weight: 600;
+    font-family: 'PT Sans', sans-serif;
+
+}
+.summaryValues{
+    padding-top: 20px;
+    color: #ff9400;
+    font-weight: lighter;
+    font-size: 25px;
+}
+
+

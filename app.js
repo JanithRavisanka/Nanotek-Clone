@@ -53,14 +53,33 @@ app.get("/patient/:pname",function(req, res){
         bpmData.push(['Time', 'Heart Rate']);
         bodyTempData.push(['Time', 'Body Temperature']);
         roomTempData.push(['Time', 'Room Temperature']);
+
+
+
+
         documents.forEach((doc) => {
             bpmData.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['bpm']]);
             bodyTempData.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['body temp']]);
             roomTempData.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['room temp']]);
         }
         );
+        //get all avarage values
+        let bpmAvg = 0;
+        let bodyTempAvg = 0;
+        let roomTempAvg = 0;
+        documents.forEach((doc) => {
+            bpmAvg += doc['bpm'];
+            bodyTempAvg += doc['body temp'];
+            roomTempAvg += doc['room temp'];
+        }
+
+        );
+        bpmAvg = bpmAvg/documents.length;
+        bodyTempAvg = bodyTempAvg/documents.length;
+        roomTempAvg = roomTempAvg/documents.length;
+
         console.log(bpmData);
-        res.render("items", {data:[bpmData, bodyTempData, roomTempData] ,current:collectionName});
+        res.render("items", {data:[bpmData, bodyTempData, roomTempData] ,current:collectionName, bpmAvg, bodyTempAvg, roomTempAvg});
       })
       .catch((error) => {
         console.error('Error getting documents:', error);
@@ -93,6 +112,7 @@ app.get("/:pname/alert",function(req, res){
     });
     res.render("alert", {current:req.params.pname});
 });
+
 
 
 app.listen(3000, function(){

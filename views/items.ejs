@@ -1,6 +1,48 @@
 <%- include("header")  -%>
 <!-- google charts -->
 <script>
+    const avgBPM = <%- JSON.stringify(bpmAvg) %>;
+    const avgBTEMP = <%- JSON.stringify(bodyTempAvg) %>;
+    const avgRTEMP = <%- JSON.stringify(roomTempAvg) %>;
+
+    function changeColor(i){ //i should be 0-100 (percentage value)
+        if(i<=20){
+            return ['#ceeded', '#f1f1f1'];
+        }else if(i<=25){
+            return ['#a3e4e5', '#f1f1f1'];
+        } else if(i<=30){
+            return ['#96e5e8', '#f1f1f1'];
+        }else if(i<=35){
+            return ['#6cc1cc', '#f1f1f1'];
+        }else if(i<=40){
+            return ['#87cc85', '#f1f1f1'];
+        }else if(i<=45){
+            return ['#65de6a', '#f1f1f1'];
+        }else if(i<=50){
+            return ['#44c83c', '#f1f1f1'];
+        }else if(i<=55){
+            return ['#45ce21', '#f1f1f1'];
+        }else if(i<=60){
+            return ['#49e625', '#f1f1f1'];
+        }else if(i<=65){
+            return ['#4bb50d', '#f1f1f1'];
+        }else if(i<=70){
+            return ['#e7ed39', '#f1f1f1'];
+        }else if(i<=75){
+            return ['#e5a54e', '#f1f1f1'];
+        }else if(i<=80){
+            return ['#f8a800', '#f1f1f1'];
+        }else if(i<=85){
+            return ['#f49606', '#f1f1f1'];
+        }else if(i<=90){
+            return ['#f47c00', '#f1f1f1'];
+        }else if(i<=95){
+            return ['#ff5402', '#f1f1f1'];
+        }else if(i<=100){
+            return ['#ff0000', '#f1f1f1'];
+        }
+    }
+
     google.charts.load('current', {packages: ['corechart', 'Line']});
     google.charts.setOnLoadCallback(drawChart);
   function drawChart() {
@@ -27,7 +69,7 @@
           subtitle: 'Pulse per min',
         },
         curveType: 'function',
-        width: 1000,
+        width: 1100,
         height: 500,
         vAxis: {
           viewWindow: {
@@ -41,7 +83,7 @@
           title: 'Body Temperature During the day',
           subtitle: 'Body Temperature in Celsius'
         },
-        width: 1000,
+        width: 1100,
         height: 500,
         vAxis: {
           viewWindow: {
@@ -56,7 +98,7 @@
           title: 'Room Temperature During the day',
           subtitle: 'Room Temperature in Celsius'
         },
-        width: 1000,
+        width: 1100,
         height: 500,
         vAxis: {
           viewWindow: {
@@ -72,17 +114,191 @@
       bpmChart.draw(bpmData, google.charts.Line.convertOptions(optionsBPM));
       bodyTempChart.draw(bodyTempData, google.charts.Line.convertOptions(optionsBTEMP));
       roomTempChart.draw(roomTempData, google.charts.Line.convertOptions(optionsRTEMP));
+
+
+      // var datax = google.visualization.arrayToDataTable([
+      //     ['Task', 'Hours per Day'],
+      //     ['Work',     11],
+      //     ['Eat',      2],
+      //     ['Commute',  2],
+      //     ['Watch TV', 2],
+      //     ['Sleep',    7]
+      //   ]);
+      //
+      //   var optionsx = {
+      //     title: 'My Daily Activities',
+      //     pieHole: 0.4,
+      //   };
+      //
+      //   var chartx = new google.visualization.PieChart(document.getElementById('donutchart'));
+      //   chartx.draw(datax, optionsx);
     }
+    google.charts.setOnLoadCallback(drawPieChartBPM);
+    function drawPieChartBPM() {
+      let data = google.visualization.arrayToDataTable([
+        ['Status', 'Hours per Day'],
+        ['',     avgBPM], // consider 40 as min bpm
+        ['',      120-avgBPM], // consider 120 as max bpm
+      ]);
+
+      let options = {
+        title: 'Heart Rate',
+        pieHole: 0.7,
+        colors: changeColor((data.getValue(0, 1)/(data.getValue(0, 1) + data.getValue(1, 1)))*100),
+          pieSliceText: 'none',
+          backgroundColor: '#ffffff',
+          legend: 'none',
+          titleTextStyle: {
+            textAlign: 'center', // Align title to center
+              fontSize:14,
+              color: "#5d5b5b"
+          }
+      };
+
+
+      var chart = new google.visualization.PieChart(document.getElementById('donutchart_bpm'));
+      chart.draw(data, options);
+      for(let i=0; i<=data.getValue(0, 1);i++){
+        setTimeout(function(){
+            data.setValue(0, 1, i);
+            console.log(data.getValue(0, 1));
+            chart.draw(data, options);
+            let precentageD = (data.getValue(0, 1)/(data.getValue(0, 1) + data.getValue(1, 1)))*100;
+            changeColor(precentageD);
+            },
+            i*50
+        );
+      }
+      //funtion for color should change over time when donut chat filling up
+
+    }
+
+    google.charts.setOnLoadCallback(drawPieChartBTEMP);
+    function drawPieChartBTEMP() {
+      let data = google.visualization.arrayToDataTable([
+        ['Status', 'average body temperature'],
+        ['',     avgBTEMP], // consider 20 as min bTemp
+        ['',     100 -  avgBTEMP], // consider 40 as max bTemp
+      ]);
+
+      let options = {
+        title: 'Body Temperature',
+        pieHole: 0.7,
+        colors: changeColor((data.getValue(0, 1)/(data.getValue(0, 1) + data.getValue(1, 1)))*100), //function for color should change over time when donut chat filling up
+          pieSliceText: 'none',
+          backgroundColor: '#ffffff',
+          legend: 'none',
+          titleTextStyle: {
+            position: 'top',
+            textAlign: 'center', // Align title to center
+              fontSize:14,
+              color: "#5d5b5b"
+            }
+      };
+
+
+
+      var chart = new google.visualization.PieChart(document.getElementById('donutchart_btemp'));
+      chart.draw(data, options);
+      for(let i=0; i<=data.getValue(0, 1);i++){
+        setTimeout(function(){
+            data.setValue(0, 1, i);
+            console.log(data.getValue(0, 1));
+            chart.draw(data, options);
+            let precentageD = (data.getValue(0, 1)/(data.getValue(0, 1) + data.getValue(1, 1)))*100;
+            changeColor(precentageD);
+            },
+            i*50
+        );
+      }
+      //funtion for color should change over time when donut chat filling up
+
+    }
+
+    google.charts.setOnLoadCallback(drawPieChartRTEMP);
+    function drawPieChartRTEMP() {
+      let data = google.visualization.arrayToDataTable([
+        ['Status', 'average room temperature'],
+        ['',     avgRTEMP], // consider 20 as min rTemp
+        ['',     100 -  avgRTEMP], // consider 40 as max rTemp
+      ]);
+
+      let options = {
+        title: 'Room Temperature',
+        pieHole: 0.7,
+        colors: changeColor((data.getValue(0, 1)/(data.getValue(0, 1) + data.getValue(1, 1)))*100),
+          pieSliceText: 'none',
+          backgroundColor: '#ffffff',
+          legend: 'none',
+          titleTextStyle: {
+            textAlign: 'center', // Align title to center
+              fontSize:14,
+              color: "#5d5b5b"
+          }
+      };
+
+
+      var chart = new google.visualization.PieChart(document.getElementById('donutchart_rtemp'));
+      chart.draw(data, options);
+      for(let i=0; i<=data.getValue(0, 1);i++){
+        setTimeout(function(){
+            data.setValue(0, 1, i);
+            console.log(data.getValue(0, 1));
+            chart.draw(data, options);
+            let precentageD = (data.getValue(0, 1)/(data.getValue(0, 1) + data.getValue(1, 1)))*100;
+            changeColor(precentageD);
+            },
+            i*50
+        );
+      }
+
+    }
+
+
   </script>
 
-<span class="cTitle ps-3">
-  <%= current %>
+<span class="cTitle">
+  Patient: <%= current %>
 </span>
-<!-- <button type="button" class="btn btn-outline-secondary"></button> -->
+<br>
+<br>
+<span class="cTitle  summaryValues">
+    Summary Values
+</span>
+<div class="row donutCharts">
+  <div class="col-sm-4">
+    <div id="donutchart_bpm"></div>
+  </div>
+  <div class="col-sm-4">
+    <div id="donutchart_btemp"></div>
+  </div>
+  <div class="col-sm-4">
+    <div id="donutchart_rtemp"></div>
+  </div>
+</div>
 
+<span class="cTitle  summaryValues">
+    BPM VALUES &nbsp-&nbsp last 20 min
+</span>
 <div id="linechart_material1"></div>
+<br>
+<br>
+<br>
+<br>
+<span class="cTitle  summaryValues">
+    BODY TEMPERATURE VALUES &nbsp-&nbsp last 20 min
+</span>
 <div id="linechart_material2"></div>
+
+<br>
+<br>
+<br>
+<br>
+<span class="cTitle  summaryValues">
+    ROOM TEMPERATURE VALUES &nbsp-&nbsp last 20 min
+</span>
 <div id="linechart_material3"></div>
+
 
 
 <%- include("footer") -%>

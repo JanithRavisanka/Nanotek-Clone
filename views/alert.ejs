@@ -1,0 +1,130 @@
+<%- include("header")  -%>
+    <!-- Page Content -->
+<!--    <div class="accordion" id="alerts">-->
+<!--      <div class="accordion-item alert-item">-->
+<!--        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">-->
+
+<!--            <h2 class="accordion-header">-->
+<!--              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">-->
+<!--                Accordion Item #1-->
+<!--              </button>-->
+<!--            </h2>-->
+<!--            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#alerts">-->
+<!--              <div class="accordion-body">-->
+<!--                      <button type="button" class="btn btn-primary btn-sm">Take action</button>-->
+<!--                      <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="accordion-item alert-item">-->
+<!--        <h2 class="accordion-header">-->
+<!--          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">-->
+<!--            Accordion Item #2-->
+<!--          </button>-->
+<!--        </h2>-->
+<!--        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#alerts">-->
+<!--          <div class="accordion-body">-->
+<!--            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="accordion-item alert-item">-->
+<!--        <h2 class="accordion-header">-->
+<!--          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">-->
+<!--            Accordion Item #3-->
+<!--          </button>-->
+<!--        </h2>-->
+<!--        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#alerts">-->
+<!--          <div class="accordion-body">-->
+<!--            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="accordion-item alert-item">-->
+<!--        <h2 class="accordion-header">-->
+<!--          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">-->
+<!--            Accordion Item #4-->
+<!--          </button>-->
+<!--        </h2>-->
+<!--        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#alerts">-->
+<!--          <div class="accordion-body">-->
+<!--            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!-- create bootstrap accordion and inside it create a collabsible alert -->
+<div class="accordion" id="alerts">
+  <div class="accordion-item alert-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        Accordion Item #1
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#alerts">
+      <div class="accordion-body">
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+          <strong>Well done!</strong> You successfully read this important alert message.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm">Take action</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="alert">Close</button>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item alert-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#alerts">
+      <div class="accordion-body">
+        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+          <strong>Well done!</strong> You successfully read this important alert message.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm">Take action</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="alert">Close</button>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item alert-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+        </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#alerts">
+      <div class="accordion-body">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Well done!</strong> You successfully read this important alert message.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm">Take action</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="alert">Close</button>
+      </div>
+    </div>
+  </div>
+    <div class="accordion-item alert-item">
+        <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Accordion Item #4
+        </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#alerts">
+        <div class="accordion-body">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Well done!</strong> You successfully read this important alert message.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm">Take action</button>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="alert">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<%- include("footer") -%>

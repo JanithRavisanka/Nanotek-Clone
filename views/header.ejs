@@ -6,14 +6,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><%= current %> | Nanotek</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico">
+  <title>PAB</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon/OIP.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="css/style.css">
-  <link type="text/css" rel="stylesheet" href="css/mstyles.css">
-  <link type="text/css" rel="stylesheet" href="css/sstyles.css">
-  <link rel="stylesheet" type="text/css" href="css/range.css">
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
+
+
+  <!--  Google Charts-->
+
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+
   
 </head>
 
@@ -32,9 +36,10 @@
     <nav class="navbar navbar-expand-lg ">
       <div class="container-fluid pleft">
         <a href="/" class="mb-auto">
-          <img id="logo" src="/images/logoWhite.png" class="mb-auto">
+          <img id="logo" src="/images/OIP.png" class="mb-auto">
+
         </a>
-        
+
 
         <button style="background-color: #ff9400;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,111 +52,55 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mb-auto mt-3">
             <li class="nav-item pe-3">
-              <a class="nav-link navbar-text ps-lg-5 pe-4 " href="/about">
-                <span class="navx">About</span>
+              <a class="ps-lg-3 pe-4 brand-name" href="/">
+                <span class="navx navTitle" style="font-size: 25px">Patient Assisting Bed</span>
               </a>
             </li>
             <li class="nav-item pe-3">
-              <a class="nav-link active navbar-text " aria-current="page" href="/services">
-                <span class="navx">Services</span>
+              <a class="nav-link navbar-text ps-lg-5 pe-4 " href="/<%= current %>/alert">
+                <span class="navx">Alerts</span>
               </a>
             </li>
-            <li class="nav-item ">
-              <a class="nav-link navbar-text mb-auto" href="/contact">
-                <span class="navx">Contact</span>
+
+            <li class="nav-item " style="position:relative;bottom: 10px">
+              <a class="nav-link navbar-text mb-auto ">
+                <span class="navx" style="padding-left: 10px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Patients</span>
               </a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link navbar-text mb-auto" >
-                <button style="color:#ff9400;font-family:'PT Sans', sans-serif;font-weight:700;font-size:17px" class="d-lg-none togbutton" style="padding-left: 10px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Categories</button>
-              </a>
-            </li> -->
-            <li class="nav-item ">
-              <a class="nav-link navbar-text mb-auto d-lg-none">
-                <span class="navx" class="d-lg-none" style="padding-left: 10px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Categories</span>
-              </a>
-            </li>
-            <li class="nav-item certificate">
-              <a href="https://www.vote.bestweb.lk/site/www_nanotek_lk/"><img src="/images/vote4us.png"
-                height="160px"></a>
-            </li>
+
 
           </ul>
 
-
-
-          
-
-          
-
-
-          <form class="d-flex ms-auto mb-auto mt-3" role="search">
-            <div class="call1">
-              <div  class="mt-0 d-inline">
-                <svg style="width:25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                  
-                  <path fill="#ffff"
-                    d="M304 0h-224c-35.35 0-64 28.65-64 64v384c0 35.35 28.65 64 64 64h224c35.35 0 64-28.65 64-64V64C368 28.65 339.3 0 304 0zM192 480c-17.75 0-32-14.25-32-32s14.25-32 32-32s32 14.25 32 32S209.8 480 192 480zM304 64v320h-224V64H304z" />
-                  </svg>
-              </div>
-              <div style="width:150px;color:white;font-weight:700;font-size:17px" class="pt-1 d-inline">
-                <a class="call1" href="tel:++94777292272">+94 777 292 272</a>
-              </div>
-            </div>
-
-            <button class="build">
-              <div class="container">
-                <div class="row">
-                  <div class="col">
-                    <div style="height: 40px;width:40px;background-color:rgb(231, 144, 31);"
-                      class="container build-contain">
-                      <img src="/images/quoteIcon.svg" class="build-img ">
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="total text-light">
-                      <div style="font-size: 25px;font-weight:500;text-align:left;color:rgb(231, 144, 31)">0 LKR</div>
-                      <div style="font-size: 14px;font-weight:100;text-align:left;color:rgb(201, 199, 197)">Build Your
-                        PC</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-            </button>
-            <button class="search">
-              <img src="/images/search.svg" alt="" srcset="">
-            </button>
-          </form>
         </div>
       </div>
     </nav>
-    <li class="nav-item certificate2 pb-5">
-      <a href="https://www.vote.bestweb.lk/site/www_nanotek_lk/"><img src="/images/vote4us.png"
-        height="160px"></a>
-    </li>
+
+
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-xl-2 xx ">
 
-            <div class="offcanvas-xl offcanvas-start offcanvasx" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+            <div class="offcanvas offcanvas-start offcanvasx" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
               <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasResponsiveLabel" style="color:#8d8d8d;">Categories</h5>
+                <h5 class="offcanvas-title" id="offcanvasResponsiveLabel" style="color:#8d8d8d;">Patient List</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body" style=" flex-direction: column;">
                 <p class="mb-0">
                   <div class="card mb-1 category" >
-                    <a href="/asusrog" style="font-size: inherit;color:inherit;text-decoration:none">
+                    <a href="/patient/Janith" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname">Asus Rog</h5>
+                            <h5 class="card-title cname">Janith</h5>
                           </div>
                         </div>
                       </div>
@@ -162,12 +111,16 @@
                   <div class="card mb-1 category" >
                     <a href="/PBA" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/ASUS_Black.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname">POWERED BY ASUS</h5>
+                            <h5 class="card-title cname">Patient-2</h5>
                           </div>
                         </div>
                       </div>
@@ -178,12 +131,16 @@
                   <div class="card mb-1 category" >
                     <a href="/apple" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/apple.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname">APPLE PRODUCTS</h5>
+                            <h5 class="card-title cname">Patient-3</h5>
                           </div>
                         </div>
                       </div>
@@ -194,12 +151,16 @@
                   <div class="card mb-1 category">
                     <a href="/console" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/console.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">CONSOLE GAMING</h5>
+                            <h5 class="card-title cname my-auto">Patient-4</h5>
                           </div>
                         </div>
                       </div>
@@ -210,12 +171,16 @@
                   <div class="card mb-1 category">
                     <a href="/LAPTOPS" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/lpIcon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">LAPTOPS</h5>
+                            <h5 class="card-title cname my-auto">Patient-5</h5>
                           </div>
                         </div>
                       </div>
@@ -226,12 +191,16 @@
                   <div class="card mb-1 category">
                     <a href="/workstations" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/pcicon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">DESKTOP WORKSTATIONS</h5>
+                            <h5 class="card-title cname my-auto">Patient-6</h5>
                           </div>
                         </div>
                       </div>
@@ -241,12 +210,16 @@
                   <div class="card mb-1 category" >
                     <a href="/GAMING DESKTOPS" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/desktop.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">GAMING DESKTOPS</h5>
+                            <h5 class="card-title cname my-auto">Patient-7</h5>
                           </div>
                         </div>
                       </div>
@@ -257,12 +230,16 @@
                   <div class="card mb-1 category" >
                     <a href="/bpc" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/pc.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">BUDGET DESKTOP COMPUTERS</h5>
+                            <h5 class="card-title cname my-auto">Patient-8</h5>
                           </div>
                         </div>
                       </div>
@@ -273,12 +250,16 @@
                   <div class="card mb-1 category" >
                     <a href="/PROCESSORS" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/prossesor.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">PROCESSORS</h5>
+                            <h5 class="card-title cname my-auto">Patient-9</h5>
                           </div>
                         </div>
                       </div>
@@ -289,12 +270,16 @@
                   <div class="card mb-1 category" >
                     <a href="/GRAPHICS TABLET" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/gatab.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">GRAPHICS TABLET/TAB</h5>
+                            <h5 class="card-title cname my-auto">Patient-10</h5>
                           </div>
                         </div>
                       </div>
@@ -305,12 +290,16 @@
                   <div class="card mb-1 category" >
                     <a href="/MOTHERBOARDS" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/mbicon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">MOTHERBOARDS</h5>
+                            <h5 class="card-title cname my-auto">Patient-11</h5>
                           </div>
                         </div>
                       </div>
@@ -321,12 +310,16 @@
                   <div class="card mb-1 category" >
                     <a href="/MEMORY(RAM)" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/ramicon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">MEMORY(RAM)</h5>
+                            <h5 class="card-title cname my-auto">Patient-12</h5>
                           </div>
                         </div>
                       </div>
@@ -337,12 +330,16 @@
                   <div class="card mb-1 category" >
                     <a href="/GRAPHIC CARDS" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/vgaicon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">GRAPHIC CARDS</h5>
+                            <h5 class="card-title cname my-auto">Patient-13</h5>
                           </div>
                         </div>
                       </div>
@@ -353,12 +350,16 @@
                   <div class="card mb-1 category" >
                     <a href="/POWER SUPPLY,UPS & SURGE PROTECTORS" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/pwIcon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">POWER SUPPLY,UPS & SURGE PROTECTORS</h5>
+                            <h5 class="card-title cname my-auto">Patient-13</h5>
                           </div>
                         </div>
                       </div>
@@ -369,12 +370,16 @@
                   <div class="card mb-1 category" >
                     <a href="/COOLING AND LIGHTNING" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/coolersicon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">COOLING AND LIGHTNING</h5>
+                            <h5 class="card-title cname my-auto">Patient-14</h5>
                           </div>
                         </div>
                       </div>
@@ -385,12 +390,16 @@
                   <div class="card mb-1 category" >
                     <a href="/STORAGE" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/storageIcon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">STORAGE</h5>
+                            <h5 class="card-title cname my-auto">Patient-15</h5>
                           </div>
                         </div>
                       </div>
@@ -401,12 +410,16 @@
                   <div class="card mb-1 category" >
                     <a href="/CASING" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/casingIcon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">CASING</h5>
+                            <h5 class="card-title cname my-auto">Patient-16</h5>
                           </div>
                         </div>
                       </div>
@@ -416,12 +429,16 @@
                   <div class="card mb-1 category" >
                     <a href="/OPTICAL DRIVES" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/odIcon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">OPTICAL DRIVES</h5>
+                            <h5 class="card-title cname my-auto">Patient-17</h5>
                           </div>
                         </div>
                       </div>
@@ -431,12 +448,16 @@
                   <div class="card mb-1 category" >
                     <a href="/MONITORS" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/moniterIcon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">MONITORS</h5>
+                            <h5 class="card-title cname my-auto">Patient-18</h5>
                           </div>
                         </div>
                       </div>
@@ -446,12 +467,16 @@
                   <div class="card mb-1 category" >
                     <a href="/SPEAKERS & HEADPHONES" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/shIcon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">SPEAKERS & HEADPHONES</h5>
+                            <h5 class="card-title cname my-auto">Patient-19</h5>
                           </div>
                         </div>
                       </div>
@@ -461,12 +486,16 @@
                   <div class="card mb-1 category" >
                     <a href="/KEYBOARDS, MICE & GAMEPADS" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/keyboard.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">KEYBOARDS, MICE & GAMEPADS</h5>
+                            <h5 class="card-title cname my-auto">Patient-20</h5>
                           </div>
                         </div>
                       </div>
@@ -476,12 +505,16 @@
                   <div class="card mb-1 category" >
                     <a href="/GAMING CHAIRS" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/chair.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                          <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">GAMING CHAIRS</h5>
+                            <h5 class="card-title cname my-auto">Patient-21</h5>
                           </div>
                         </div>
                       </div>
@@ -491,12 +524,16 @@
                   <div class="card mb-1 category" >
                     <a href="/CABLES & CONNECTIONS" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/cable.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">CABLES & CONNECTIONS</h5>
+                            <h5 class="card-title cname my-auto">Patient-22</h5>
                           </div>
                         </div>
                       </div>
@@ -506,12 +543,16 @@
                   <div class="card mb-1 category" >
                     <a href="/EXTERNAL STORAGE" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/usb.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">EXTERNAL STORAGE</h5>
+                            <h5 class="card-title cname my-auto">Patient-23</h5>
                           </div>
                         </div>
                       </div>
@@ -521,12 +562,16 @@
                   <div class="card mb-1 category" >
                     <a href="/LIVE STREAMING & RECORDING" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/live.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">LIVE STREAMING & RECORDING</h5>
+                            <h5 class="card-title cname my-auto">Patient-24</h5>
                           </div>
                         </div>
                       </div>
@@ -536,12 +581,16 @@
                   <div class="card mb-1 category" >
                     <a href="/EXPANSION CARDS & NETWORKING" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/netCardIcon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">EXPANSION CARDS & NETWORKING</h5>
+                            <h5 class="card-title cname my-auto">Patient-25</h5>
                           </div>
                         </div>
                       </div>
@@ -551,12 +600,16 @@
                   <div class="card mb-1 category" >
                     <a href="/GIFT VOUCHER" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/vouchericon.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">GIFT VOUCHER</h5>
+                            <h5 class="card-title cname my-auto">Patient-26</h5>
                           </div>
                         </div>
                       </div>
@@ -566,12 +619,16 @@
                   <div class="card mb-1 category" >
                     <a href="/COMMERCIAL SOLUTIONS" style="font-size: inherit;color:inherit;text-decoration:none">
                       <div class="row g-0">
-                        <div class="col-4">
-                          <img src="/images/catogory/AsusLogo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="...">
+                        <div class="col-4 ps-3 pt-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+<!--                          <img src="/images/catogory/asus-logo.png" class="img-fluid rounded-start d-block ms-auto mt-2 cat-image" alt="asus-logo">-->
                         </div>
                         <div class="col-8">
                           <div class="card-body">
-                            <h5 class="card-title cname my-auto">COMMERCIAL SOLUTIONS</h5>
+                            <h5 class="card-title cname my-auto">Patient-27</h5>
                           </div>
                         </div>
                       </div>

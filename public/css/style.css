@@ -507,3 +507,19 @@ ul.tab li a:focus,
 }
 
 
+/*home css*/
+#smallDesctiption{
+    font-size: 20px;
+    font-weight: lighter;
+    color: #ff9400;
+    margin-bottom: 20px;
+        margin-top: 150px;
+}
+#homeDescription{
+    font-size: 20px;
+    font-weight: lighter;
+    color: #ff9400;
+    margin-bottom: 20px;
+    padding-top: 50px;
+}
+

@@ -42,6 +42,9 @@
             return ['#ff0000', '#f1f1f1'];
         }
     }
+    function updateChartWithDelay() {
+        setTimeout(updateChart, 1000); // Delay of 1 second (1000 milliseconds)
+    }
 
     google.charts.load('current', {packages: ['corechart', 'Line']});
     google.charts.setOnLoadCallback(drawChart);
@@ -51,15 +54,9 @@
       const data = <%- JSON.stringify(data) %>;
 
       console.log(data);
-      const bpmData = new google.visualization.arrayToDataTable(data[0]);
-      // pData.addColumn('datetime', 'Time');
-      // pData.addColumn('number', 'Pulse');
-      //for loop for add each row firebase timestamp to google chart
-      //   for (let i = 0; i < data.length; i++) {
-      //       pData.addRow([new Date(data[i].time), data[i].pulse]);
-      //   }
-      const bodyTempData = new google.visualization.arrayToDataTable(data[1]);
-      const roomTempData = new google.visualization.arrayToDataTable(data[2]);
+      let bpmData = new google.visualization.arrayToDataTable(data[0]);
+      let bodyTempData = new google.visualization.arrayToDataTable(data[1]);
+      let roomTempData = new google.visualization.arrayToDataTable(data[2]);
 
 
 
@@ -115,6 +112,24 @@
       bodyTempChart.draw(bodyTempData, google.charts.Line.convertOptions(optionsBTEMP));
       roomTempChart.draw(roomTempData, google.charts.Line.convertOptions(optionsRTEMP));
 
+
+      var socket = io();
+
+
+      //update chart
+        socket.on('updateChart', function (data) {
+            console.log(data);
+            bpmData = new google.visualization.arrayToDataTable(data[0]);
+            bodyTempData = new google.visualization.arrayToDataTable(data[1]);
+            roomTempData = new google.visualization.arrayToDataTable(data[2]);
+            bpmChart.draw(bpmData, google.charts.Line.convertOptions(optionsBPM));
+            bodyTempChart.draw(bodyTempData, google.charts.Line.convertOptions(optionsBTEMP));
+            roomTempChart.draw(roomTempData, google.charts.Line.convertOptions(optionsRTEMP));
+            updateChartWithDelay();
+        });
+        function updateChart(){
+            socket.emit('updateChart');
+        }
 
       // var datax = google.visualization.arrayToDataTable([
       //     ['Task', 'Hours per Day'],
@@ -253,7 +268,7 @@
       }
 
     }
-
+    updateChartWithDelay();
 
   </script>
 

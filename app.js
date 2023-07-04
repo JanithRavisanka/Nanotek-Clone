@@ -2,24 +2,22 @@ const express = require("express");
 const app = express();
 
 
+ //message sending
+const { Vonage } = require('@vonage/server-sdk')
+//authenticating
+const vonage = new Vonage({
+    apiKey: "444126f4",
+    apiSecret: "jo4IKWkkc1A0GLBf"
+})
+var collectionName = "Janith";
+
+
+
+
 const ejs =  require("ejs");
 const {cert} = require('firebase-admin/app');
 const admin = require('firebase-admin');
-const http = require('http');
-const socket = require('socket.io');
-const {google} = require("google-charts");
 
-const net = http.Server(app); //create server
-const io = socket(net); //create socket using server
-
-
-//set up io connection
-io.on('connection', function(socket){
-    socket.on("updateChart", function(chartData){
-        console.log(chartData);
-        io.emit("chartUpdated", chartData);
-    });
-});
 
 const serviceAccount = require("/Users/janith/PycharmProjects/PAB-WebApp/patient-assisting-bed-app.json");
 
@@ -29,8 +27,84 @@ admin.initializeApp({
 });
 const db = admin.firestore()
 
+//create a function to check patient last hr value every 1 min and send message
+function checkPatientLastHr(){
+    db.collection(collectionName)
+        .orderBy('timestamp', 'desc')
+        .limit(1)
+        .get()
+        .then((snapshot) => {
+            if (snapshot.empty) {
+                console.log('No documents found in the collection.');
+                return;
+            }
 
+            const documents = [];
+            snapshot.forEach((doc) => {
+                documents.push(doc.data());
+            });
 
+            console.log('Retrieved documents:');
+            console.log(documents);
+
+            //get last hr value
+            let lastHr = 0;
+            let lastBt = 0;
+            documents.forEach((doc) => {
+                lastHr = doc['bpm'];
+                lastBt = doc['body temp'];
+            }
+            );
+            console.log(lastHr);
+            //send message if last hr value is less than 60
+            if(lastHr < 60 || lastHr > 120 || lastBt < 35 || lastBt > 40){
+                const from = "PAB";
+                const to = "94703487817";
+                let text;
+                if(lastHr < 60 && lastBt < 35){
+                    text = 'Patient ' + collectionName +' heart rate is less than 60 and body temperature is less than 35. Please check the patient.';
+                }else if(lastHr < 60 && lastBt > 40){
+                    text = 'Patient ' + collectionName +' heart rate is less than 60 and body temperature is more than 40. Please check the patient.';
+                }else if(lastHr > 120 && lastBt < 35){
+                    text = 'Patient ' + collectionName +' heart rate is more than 120 and body temperature is less than 35. Please check the patient.';
+                }else if(lastHr > 120 && lastBt > 40){
+                    text = 'Patient ' + collectionName +' heart rate is more than 120 and body temperature is more than 40. Please check the patient.';
+                }else if(lastHr < 60 && lastBt < 35){
+                    text = 'Patient ' + collectionName +' heart rate is less than 60 and body temperature is less than 35. Please check the patient.';
+                }else if(lastHr < 60){
+                    text = 'Patient ' + collectionName +' heart rate is less than 60. Please check the patient.';
+                }else if(lastHr > 120){
+                    text = 'Patient ' + collectionName +' heart rate is more than 120. Please check the patient.';
+                }else if(lastBt < 35){
+                    text = 'Patient ' + collectionName +' body temperature is less than 35. Please check the patient.';
+                }else if(lastBt > 40){
+                    text = 'Patient ' + collectionName +' body temperature is more than 40. Please check the patient.';
+                }
+            else{
+                console.log('Patient ' + collectionName +' is healthy.');
+            }
+                async function sendSMS() {
+                    await vonage.sms.send({to, from, text})
+                        .then(resp => { console.log('Message sent successfully'); console.log(resp); })
+                        .catch(err => { console.log('There was an error sending the messages.'); console.error(err); });
+                }
+
+                sendSMS();
+            }
+        })
+        .catch((error) => {
+            console.error('Error getting documents:', error);
+        });
+}
+
+const interval = 60000; // Time interval in milliseconds to check hr value (60000ms = 1 minute)
+async function startInterval() {
+    while (true) {
+        await new Promise(resolve => setTimeout(resolve, interval));
+        checkPatientLastHr();
+    }
+}
+startInterval().then(r => console.log(r)).catch(e => console.log(e));
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -43,55 +117,11 @@ app.get("/", function(req, res){
 });
 
 
-//async function to get data from firebase
-async function getData(collectionName){
-    let data = [];
-    const snapshot = await db.collection(collectionName).orderBy('timestamp', 'asc').limit(20).get();
-    if (snapshot.empty) {
-      console.log('No documents found in the collection.');
-      return;
-    }
 
-    const documents = [];
-    snapshot.forEach((doc) => {
-      documents.push(doc.data());
-    });
-
-    console.log('Retrieved documents:');
-    console.log(documents);
-    //create array for Google charts data
-    let bpmData = [];
-    let bodyTempData = [];
-    let roomTempData = [];
-    bpmData.push(['Time', 'Heart Rate']);
-    bodyTempData.push(['Time', 'Body Temperature']);
-    roomTempData.push(['Time', 'Room Temperature']);
-
-
-
-
-    documents.forEach((doc) => {
-        bpmData.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['bpm']]);
-        bodyTempData.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['body temp']]);
-        roomTempData.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['room temp']]);
-    }
-    );
-    return [bpmData, bodyTempData, roomTempData];
-
-}
-io.on('connection', (socket) => {
-socket.on('requestChartData', async (collectionName) => {
-        console.log(collectionName);
-        let chartData = await getData(collectionName);
-        console.log(chartData);
-        io.emit('chartData', chartData);
-    });
-});
-
-app.get("/patient/:pname",async (req, res)=>{
-    const collectionName = req.params.pname;
+app.get("/patient/:pname",(req, res)=>{
+    collectionName = req.params.pname;
     db.collection(collectionName)
-        .orderBy('timestamp', 'asc')
+        .orderBy('timestamp', 'desc')
         .limit(20)
       .get()
       .then((snapshot) => {
@@ -106,6 +136,8 @@ app.get("/patient/:pname",async (req, res)=>{
         });
 
         console.log('Retrieved documents:');
+
+        documents.reverse(); // reverse the array to get the latest data first
         console.log(documents);
         //create array for Google charts data
         let bpmData = [];
@@ -119,9 +151,9 @@ app.get("/patient/:pname",async (req, res)=>{
 
 
         documents.forEach((doc) => {
-            bpmData.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['bpm']]);
-            bodyTempData.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['body temp']]);
-            roomTempData.push([doc.timestamp.toDate().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}), doc['room temp']]);
+            bpmData.push([doc.timestamp.toDate().toLocaleTimeString() , doc['bpm']]);
+            bodyTempData.push([doc.timestamp.toDate().toLocaleTimeString(), doc['body temp']]);
+            roomTempData.push([doc.timestamp.toDate().toLocaleTimeString(), doc['room temp']]);
         }
         );
         //get all avarage values
@@ -150,36 +182,6 @@ app.get("/patient/:pname",async (req, res)=>{
 
 
 
-
-
-//get request to alerts each patient
-// app.get("/:pname/alert",function(req, res){
-//     console.log(req.params.pname);
-//
-//     //code for get patient data from collection name Alerts from firestore fiels= [h-bpm, h-temp, l-temp, l-bpm] documents are names by each patient name
-//     db.collection("Alerts").doc(req.params.pname).get().then((doc) => {
-//         if (doc.exists) {
-//             console.log("Document data:", doc.data());
-//             res.render("alert", {data:doc.data(), current:req.params.pname});
-//         } else {
-//             // doc.data() will be undefined in this case
-//             console.log("No such document!");
-//             res.render("alert", {data: {}, current: req.params.pname});
-//         }
-//     }
-//     ).catch((error) => {
-//         console.log("Error getting document:", error);
-//         res.render("alert", {data:{}, current:req.params.pname});
-//     });
-//     res.render("alert", {current:req.params.pname});
-// });
-
-
-
-// app.listen(3000, function(){
-//     console.log("sever successfully running on port 3000");
-// });
-
-net.listen(3000, function(){
+app.listen(3000, function(){
     console.log("sever successfully running on port 3000");
 });

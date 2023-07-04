@@ -34,6 +34,7 @@
 
 #logo {
     width: 100px;
+    padding-left: 20px;
 }
 
 .navbar-text {
@@ -41,6 +42,7 @@
     font-weight: 600;
     font-size: 17px;
     font-family: 'PT Sans', sans-serif;
+    text-decoration: none!important;
 }
 
 .navx {
@@ -50,6 +52,15 @@
 .navx:hover {
     background-color: #ff9400;
     color: #242323;
+}
+.navTitle{
+    /*font-size: 17px;*/
+    /*font-weight: 600;*/
+    font-family: 'PT Sans', sans-serif;
+    color: #ff9400;
+    padding: 10px;
+    text-decoration: none!important;
+    padding-left: 80px;
 }
 .navTitle:hover{
     background-color: #242323 ;
@@ -145,82 +156,23 @@
     background-color: #a5a4a3;
 }
 
-.aboutImage {
-    width: 100%;
-    padding: 0;
-    height: 300px;
-    object-fit: cover;
-}
-
 .no-pad {
-    padding: 0%;
+    padding: 0;
 }
 
-/* css by sharhan */
 
-.aboutText {
-    font-family: 'PT Sans', sans-serif;
-    color: #ffff;
-    font-weight: 550;
-}
-
-.about {
-    font-family: 'PT Sans', sans-serif;
-    color: #a5a4a3;
-
-}
 
 .xxx {
-    padding-right: 0%;
+    padding-right: 0;
 }
 
-.togbutton {
-    background-color: transparent;
-    border: inherit;
-    font-family: inherit;
-}
-.togbutton:hover{
-    color:black;
-    background-color: #ff9400!important;
-}
-.call1{
-    min-width: 200px;
-    text-decoration: none;
-    color: aliceblue;
-}
-.call1:hover{
-    color: aliceblue;
-}
-.call2{
-    background-color: #181717;
-    height: 50px;
-    color: #7f7f7f;
-    font-size: 25px;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: 600;
-}
+
 .num2{
     color: aliceblue;
 
 }
 
-@media screen and (max-width: 1345px) {
-    .certificate {
-        display: none;
-    }
-}
 
-@media screen and (min-width: 1345px) {
-    .certificate2 {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 1345px) {
-    .certificate2 {
-        display: block;
-    }
-}
 
 
 
@@ -240,19 +192,14 @@
         display: none;
     }
 }
-.col-md-6-custom{
-    max-width: 98%;
-}
+
 @media screen and (max-width: 992px) {
     .offcanvasx {
         width: 40%!important;
         background-color: #1c1c1c;
     }
 }
-.offcanvas-lg{
-    --bs-offcanvas-padding-x: 0rem;
-    --bs-offcanvas-padding-y: 0.5rem;
-}
+
 .cTitle{
     font-size: 3rem;
     font-family: 'PT Sans', sans-serif;
@@ -261,198 +208,9 @@
     color:aliceblue ;
 }
 
-/* ishara */
-.carousel-indicators li {
-    list-style-type: circle;
-}
-
-.carousel-indicators li {
-    list-style-type: circle;
-    border-radius: 50%;
-}
-
-.carousel-indicators>li {
-    border-radius: 50%;
-}
-
-.slider {
-    width: 300px;
-    float: left;
-    align-items: center;
-
-}
-
-.col-sm-7 {
-    color: aliceblue;
-    float: right;
-}
-
-.col-sm-7 {}
-
-.carousel-inner {
-    border-bottom: 3px solid #4b4a48;
-}
-
-
-
-.ul.tab {
-    list-style-type: none;
-    margin-left: 20%;
-    padding: 0;
-    overflow: hidden;
-
-
-}
-#afterTiny{
-    display: none;
-}
-@media screen and (max-width: 1200px) {
-    #afterTiny{
-        display: flex;
-        position: absolute;
-        z-index: 1;
-        flex-direction: column;
-    
-    }
-}
-@media screen and (max-width: 1200px) {
-    #beforeTiny{
-        display: none;
-    }
-}
-
-
-/* Float the list items side by side */
-ul.tab li {
-    margin-left: 2%;
-    display: inline-block;
-}
-
-/* Style the links inside the list items */
-ul.tab li a {
-    display: inline-block;
-    color: #a9a9a9;
-    text-align: center;
-    padding: 7px 7px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 45px;
-}
-
-/* Change background color of links on hover */
-ul.tab li a:hover {
-    color: #ff9400;
-}
-
-/* Create an active/current tablink class */
-ul.tab li a:focus,
-.active {}
-
-.hover-underline-animation {
-    display: inline-block;
-    position: relative;
-    font-size: 40px;
-    float: right;
-    color: #ff9400;
-}
-
-.hover-underline-animation:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #0087ca;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-}
-
-.hover-underline-animation:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-
-
-
-
-
-
-
-.container1 {
-    background-color: #ff9400;
-
-
-
-
-}
-
-.details {
-    align-items: center;
-    padding-left: 50px;
-}
-
-
-.column {
-    float: left;
-    width: 350px;
-    background-color: #ff9400;
-    margin-left: 5px;
-    height: 300px;
-    padding-left: 30px;
-    padding-right: 50px;
-}
-
-.part1 {
-    float: right;
-    margin-right: 5px;
-    margin-bottom: 10px;
-}
-
-/* Clear floats after the columns */
-.part1:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.container1 h4 {
-    padding-left: 50px;
-}
-
-.important ul li {
-    display: inline-block;
-    float: right;
-    margin-right: 100px;
-}
-
-.gg {
-    padding-top: 70px;
-}
-
-.offersContainer{
-    width:55%;
-    font-size: 2.3rem;
-    font-weight: 600;
-    font-family: 'PT Sans', sans-serif;;
-}
-.offer{
-    color: #ff9400;
-}
-.new{
-    color:#4b4a48;
-}
-.hrhome{
-    position: relative;
-    background-color: #ff9400;
-    right: 10px;
-
-}
-.brand-name{
-    text-decoration: none;
-    color: #ff9400;
-    font-weight: lighter;
+a{
+    text-decoration: none!important;
+    color: #1c1c1c;
 }
 
 
@@ -481,24 +239,8 @@ ul.tab li a:focus,
     margin-bottom: 50px;
 }
 
-/*styles for alerts*/
-#alerts{
-    padding-top: 100px;
 
-    /*background-color: #ff9400;*/
-    color: #4b4a48;
-    font-weight: 600;
-    font-family: 'PT Sans', sans-serif;
-}
-.alert-item{
-    /*border-radius: 10px;*/
-    /*border: 50px;*/
-    background-color: #ff9400;
-    color: #4b4a48;
-    font-weight: 600;
-    font-family: 'PT Sans', sans-serif;
 
-}
 .summaryValues{
     padding-top: 20px;
     color: #ff9400;
@@ -523,3 +265,7 @@ ul.tab li a:focus,
     padding-top: 50px;
 }
 
+.offcanvas{
+    background-color: #1c1c1c;
+    color: aliceblue;
+}

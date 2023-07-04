@@ -1,0 +1,96 @@
+<%- include("header")  -%>
+<h1 class="cTitle pt-3"> Medical Dosages : <%= current %> </h1>
+
+<div class="container-fluid formContainer">
+    <form id="dosageForm" action="/patient/<%=current%>/dosage" method="POST">
+
+
+        <!--    first medical dosage-->
+        <div class="row ">
+            <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="name" name="name1" placeholder="name@example.com">
+                  <label for="floatingInput">Enter prescription name</label>
+                </div>
+            </div>
+
+            <div class="col-4 ">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="dosage" name="dosage1" placeholder="name@example.com">
+                  <label for="floatingInput">Enter dosage</label>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <select class="form-select form-select-lg pb-4"  id="perDay" name="perDay1">
+                  <option selected class="selectText">Times per day: </option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+        <hr style="height: 3px;color:#ff9400;">
+        <!--    second medical dosage-->
+        <div class="row pt-4">
+            <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="name2">
+                  <label for="floatingInput">Enter prescription name</label>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="dosage2">
+                  <label for="floatingInput">Enter dosage</label>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <select class="form-select form-select-lg pb-4"  id="perDay" name="perDay2">
+                  <option selected class="selectText">Times per day: </option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+        <hr style="height: 5px;color:#ff9400;">
+        <!--    third medical dosage-->
+        <div class="row pt-4">
+            <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="name3">
+                  <label for="floatingInput">Enter prescription name</label>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="dosage3">
+                  <label for="floatingInput">Enter dosage</label>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <select class="form-select form-select-lg pb-4"  id="perDay" name="perDay3">
+                  <option selected class="selectText">Times per day: </option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+        <hr style="height: 3px;color:#ff9400;">
+
+        <div class="col-3 mx-auto ps-5 pt-5 ">
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </div>
+
+    </form>
+
+</div>
+
+
+<%- include("footer")  -%>

@@ -27,12 +27,7 @@
     <div class="bodyx"></div>
     <div class="bodybg"></div>
 
-    <div class="container-fluid text-center call2">
-      <span class="align-middle">
-        Call us -<span class="num2 ps-1">+94 777 292 272</span>
-      </span>
-      
-    </div>
+
     <nav class="navbar navbar-expand-lg ">
       <div class="container-fluid pleft">
         <a href="/" class="mb-auto">
@@ -67,8 +62,13 @@
                 <span class="navx" style="padding-left: 10px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Patients</span>
               </a>
             </li>
-
-
+            <% if(current !== 'Home'){ %>
+            <li class="nav-item pe-3">
+              <a class="nav-link navbar-text ps-lg-5 pe-4 " href="/patient/<%= current %>/dosage">
+                <span class="navx">Dosage</span>
+              </a>
+            </li>
+            <% } %>
           </ul>
 
         </div>

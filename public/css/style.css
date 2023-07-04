@@ -175,24 +175,6 @@
 
 
 
-
-
-@media screen and (max-width: 1200px) {
-    .call2 {
-        display: block;
-    }
-}
-@media screen and (min-width: 1200px) {
-    .call2 {
-        display: none;
-    }
-}
-@media screen and (max-width: 1200px) {
-    .call1 {
-        display: none;
-    }
-}
-
 @media screen and (max-width: 992px) {
     .offcanvasx {
         width: 40%!important;
@@ -201,9 +183,9 @@
 }
 
 .cTitle{
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: 'PT Sans', sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
     color:aliceblue ;
 }
@@ -268,4 +250,20 @@ a{
 .offcanvas{
     background-color: #1c1c1c;
     color: aliceblue;
+}
+
+
+/*css for dosage form*/
+#dosageForm{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+#dosageForm div{
+    font-size: 15px;
+}
+.formContainer{
+    padding-left: 0;
+}
+#perDay{
+    font-size: 15px;
 }

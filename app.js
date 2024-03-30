@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const { Vonage } = require('@vonage/server-sdk')
 //authenticating
 const vonage = new Vonage({
-    apiKey: "444126f4",
-    apiSecret: "jo4IKWkkc1A0GLBf"
+    apiKey: "",
+    apiSecret: ""
 })
 var collectionName = "Janith";
 
